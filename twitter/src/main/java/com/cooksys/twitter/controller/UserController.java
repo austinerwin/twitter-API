@@ -18,8 +18,12 @@ import com.cooksys.twitter.service.UserService;
 @RequestMapping("user")
 public class UserController {
 	
-	UserService userService;
+	private UserService userService;
 	
+	/*public UserController(UserService userService) {
+		this.userService = userService;
+	}*/
+
 	@PostMapping
 	public void addUser(@RequestBody UserDto userDto, HttpServletResponse response) {
 		if(userService.create(userDto))
@@ -27,4 +31,7 @@ public class UserController {
 		else
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		}
+	
+	
 	}
+

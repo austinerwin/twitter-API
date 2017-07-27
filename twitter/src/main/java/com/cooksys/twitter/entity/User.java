@@ -17,8 +17,8 @@ public class User {
 	@GeneratedValue
 	private Integer id;
 	private String username;
-	@Embedded
-	private Profile profile;
+	//@Embedded
+	//private Profile profile;
 	
 	public User() {
 		
