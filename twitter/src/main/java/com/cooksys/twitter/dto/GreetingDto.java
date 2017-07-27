@@ -1,9 +1,9 @@
 package com.cooksys.twitter.dto;
 
-public class GreetingDTO {
+public class GreetingDto {
 	private String content;
 	
-	public GreetingDTO(String content) {
+	public GreetingDto(String content) {
 		super();
 		this.content = content;
 	}
