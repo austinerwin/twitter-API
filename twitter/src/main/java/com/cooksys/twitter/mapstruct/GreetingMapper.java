@@ -9,6 +9,7 @@ import com.cooksys.twitter.entity.Greeting;
 
 @Mapper(componentModel = "spring")
 public interface GreetingMapper {
+	
 	@Mappings({ @Mapping(source = "content", target = "content") })
 	Greeting fromDto(GreetingDto dto);
 	
