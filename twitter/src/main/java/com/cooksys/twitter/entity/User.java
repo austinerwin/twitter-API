@@ -1,10 +1,14 @@
 package com.cooksys.twitter.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -12,8 +16,9 @@ public class User {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	
 	private String username;
+	@Embedded
+	private Profile profile;
 	
 	public User() {
 		
