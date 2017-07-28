@@ -1,5 +1,7 @@
 package com.cooksys.twitter.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +17,23 @@ import com.cooksys.twitter.dto.UserDto;
 import com.cooksys.twitter.service.UserService;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("users")
 public class UserController {
 	
 	private UserService userService;
 	
 	public UserController(UserService userService) {
 		this.userService = userService;
+	}
+	
+	@GetMapping
+	public List<UserDto> getUsers() {
+		return userService.getAll();
+	}
+	
+	@GetMapping("{username}")
+	public UserDto getUserByUsername(@PathVariable String username) {
+		return userService.getByUsername(username);
 	}
 
 	@PostMapping

@@ -1,5 +1,6 @@
 package com.cooksys.twitter.entity;
 
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,9 +20,23 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+	
 	private String username;
+	private Long joined;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String phone;
+	
+	//@OneToMany(mappedBy = "users")
+	//private Set<User> following = new HashSet<User>();
+	
+	//@OneToMany(mappedBy = "users")
+	//private Set<User> followers = new HashSet<User>();
+	//private Set<Tweet> tweets;
+	
 	//@Embedded
-	//private Profile profile;
+	//private Credentials credentials;
 	
 	public User() {
 		
@@ -29,29 +44,87 @@ public class User {
 	
 	
 	// auto generated
-	
-	public User(Integer id, String username) {
+
+	public User(Integer id, String username, Long joined, String firstName, String lastName, String email,
+			String phone) {
 		super();
 		this.id = id;
 		this.username = username;
+		this.joined = joined;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}
+
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+
 	public String getUsername() {
 		return username;
 	}
+
 
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
+
+	public Long getJoined() {
+		return joined;
+	}
+
+
+	public void setJoined(Long joined) {
+		this.joined = System.currentTimeMillis();
+	}
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getPhone() {
+		return phone;
+	}
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
 	@Override
 	public int hashCode() {
@@ -60,8 +133,7 @@ public class User {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

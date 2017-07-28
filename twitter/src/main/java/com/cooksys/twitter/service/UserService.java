@@ -1,5 +1,8 @@
 package com.cooksys.twitter.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.cooksys.twitter.dto.UserDto;
@@ -23,6 +26,14 @@ public class UserService {
 		User user = userMapper.fromDto(userDto);
 		userRepo.save(user);
 		return true;
+	}
+
+	public List<UserDto> getAll() {
+		return userRepo.findAll().stream().map(userMapper::toDto).collect(Collectors.toList());
+	}
+
+	public UserDto getByUsername(String username) {
+		return userMapper.toDto(userRepo.getByUsername(username));
 	}
 
 }
