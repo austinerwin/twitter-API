@@ -2,25 +2,15 @@ package com.cooksys.twitter.dto;
 
 public class UserDto {
 	
-	private Integer id;
 	private String username;
 	
 	public UserDto() {
 		
 	}
 
-	public UserDto(Integer id, String username) {
+	public UserDto(String username) {
 		super();
-		this.id = id;
 		this.username = username;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getUsername() {

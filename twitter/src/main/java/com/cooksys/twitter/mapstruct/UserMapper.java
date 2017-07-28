@@ -10,7 +10,10 @@ import com.cooksys.twitter.entity.User;
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 	
+	@Mappings({ @Mapping(source = "username", target = "username") })
 	User fromDto(UserDto dto);
+	
+	@Mappings({ @Mapping(source = "username", target = "username") })
 	UserDto toDto(User user);	
 	
 	/*@Mappings({})
